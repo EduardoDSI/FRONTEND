@@ -1,0 +1,54 @@
+<div class="container-fluid px-4 mt-5">
+    <div class="card bg-light mb-3">
+        <div class="card-header text-center">
+            <h1 class="mt-4">MANTENIMIENTO DE DIRECCIONES</h1>
+        </div>
+        <div class="card-body">
+
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Calle</th>
+                        <th>Referencia</th>
+                        <th>IdPersona</th>
+                        <th>
+                            <button (click)="crearDireccion(modalEdit)" class="btn btn-primary btn-sm">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let direccion of Direccions">
+                        <td> {{direccion.id}} </td>
+                        <td> {{direccion.calle}} </td>
+                        <td> {{direccion.referencia}} </td>
+                        <td> {{direccion.idPersona}} </td>
+                        <td>
+                            <button (click)="editarDireccion(modalEdit,direccion)" class="btn btn-primary btn-sm">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button (click)="eliminarRegistro(direccion.id)" class="btn btn-danger btn-sm">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+<ng-template #modalEdit>
+    <app-mant-direccion-register
+    [title]="titleModal"
+    [Direccion]="DireccionSelected"
+    [accion]="accionModal"
+    (closeModalEmmit)="getCloseModalEmmit($event)"
+    ></app-mant-direccion-register>
+</ng-template>
+
+

@@ -1,0 +1,142 @@
+<div class="container-fluid px-4 mt-5">
+    <div class="card bg-light mb-3">
+        <div class="card-header text-center">
+            <h1 class="mt-4">MANTENIMIENTO DE PEDIDOS</h1>
+        </div>
+        <div class="card-body">
+            <form [formGroup]="myFormFilter">
+
+                <div class="card bg-light mb-3">
+                    <div class="card-header">BUSQUEDA</div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-3">
+                                <div class="form-group">
+                                    <label for="">Id</label>
+                                    <input formControlName="id" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="form-group">
+                                    <label for="">Fecha</label>
+                                    <input formControlName="fecha" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="form-group">
+                                    <label for="">Cita</label>
+                                    <input formControlName="cita" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="form-group">
+                                    <label for="">Numero Pedido</label>
+                                    <input formControlName="numPedido" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="form-group">
+                                    <label for="">Tipo Comprobante</label>
+                                    <input formControlName="tipoComprobante" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="form-group">
+                                    <label for="">IdPersona</label>
+                                    <input formControlName="idPersona" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="form-group">
+                                    <br>
+                                    <button (click)="filtrar()" class="btn btn-primary btn-sm">
+                                        <i class="fas fa-search"></i>
+                                    </button>
+                                    <button class="btn btn-danger btn-sm">
+                                        <i class="fas fa-broom"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Fecha</th>
+                        <th>Cita</th>
+                        <th>NumPedido</th>
+                        <th>TipoComprobante</th>
+                        <th>Descuento</th>
+                        <th>IdPersona</th>
+
+                        <th>
+                            <button class="btn btn-primary btn-sm">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let pedido of Pedidos">
+                        <td> {{pedido.id }}</td>
+                        <td> {{pedido.fecha}}</td>
+                        <td> {{pedido.cita }}</td>
+                        <td> {{pedido.numPedido }}</td>
+                        <td> {{pedido.tipoComprobante }}</td>
+                        <td> {{pedido.descuento }}</td>
+                        <td> {{pedido.idPersona }}</td>
+                        <td>
+                            <button  class="btn btn-primary btn-sm">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="btn btn-danger btn-sm">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="row">
+                <div class="col-xs-8 col-8">
+
+                    <pagination (pageChanged)="changePage($event)" [totalItems]="totalItems"
+                        [itemsPerPage]="itemsPerPage" [previousText]="'Anterior'" [nextText]="'Siguiente'">
+                    </pagination>
+
+                </div>
+
+                <div class="col-xs-4 col-4">
+
+                    <select (change)="changeItemsPerPage()" [(ngModel)]="itemsPerPage" class="form-select">
+                        <option value="3">3</option>
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                        <option value="30">30</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                    </select>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- <ng-template #modalEdit>
+    <app-mant-pedido-register
+    [title]="titleModal"
+    [Pedido]="PedidoSelected"
+    [accion]="accionModal"
+    (closeModalEmmit)="getCloseModalEmmit($event)"
+    ></app-mant-pedido-register>
+</ng-template> -->
+
+

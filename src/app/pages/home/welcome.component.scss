@@ -1,0 +1,29 @@
+/* Agrega un margen derecho a los elementos hijos directos de la clase .navbar */
+.navbar > * {
+    margin-right: 15px; /* Puedes ajustar el valor según sea necesario */
+}
+
+/* Agrega un margen derecho al último elemento hijo de la clase .navbar para evitar espacio adicional */
+.navbar > :last-child {
+    margin-right: 0;
+}
+/* Ajustes específicos para los iconos de búsqueda y carrito */
+.navbar .fa-search,
+.navbar .fa-cart-arrow-down {
+    margin-right: 20px; /* Ajusta el margen derecho según sea necesario */
+    font-size: 20px; /* Ajusta el tamaño de fuente según sea necesario */
+}
+
+/* Alinea verticalmente los iconos en la barra de navegación */
+.navbar .navbar-collapse .navbar-nav .nav-link i {
+    vertical-align: middle;
+}
+
+/* Estilo adicional para el botón adicional */
+.navbar .ms-auto button {
+    margin-left: 20px; /* Ajusta el margen izquierdo según sea necesario */
+}
+.first-image {
+    width: 600px;
+    height: 600px;
+}

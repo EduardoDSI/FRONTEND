@@ -1,0 +1,69 @@
+<div class="modal-header">
+    <h4 class="modal-title pull-left">{{title}}</h4>
+    <!-- (click)="modalRef?.hide()" -->
+    <button type="button" class="btn-close close pull-right" aria-label="Close">
+        <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+
+    <form [formGroup]="myForm">
+        <div class="row">
+            <div class="col-12 mt-3">
+                <div class="form-group">
+                    <label for="">ID</label>
+                    <input formControlName="id" type="text" class="form-control" placeholder="Ingrese el Identificador">
+                </div>
+            </div>
+            <div class="col-12 mt-3">
+                <div class="form-group">
+                    <label for="">Calle</label>
+                    <input formControlName="calle" type="text" class="form-control"
+                        placeholder="Ingrese el calle del ubigeo">
+                </div>
+                <div *ngIf="myForm.get('calle')?.errors &&  myForm.touched ">
+                    <small class="text-danger" *ngIf="myForm.get('calle')?.hasError('required')"> Campo requerido
+                    </small>
+                </div>
+            </div>
+            <div class="col-12 mt-3">
+                <div class="form-group">
+                    <label for="">Referencia</label>
+                    <input formControlName="referencia" type="text" class="form-control"
+                        placeholder="Ingrese el referencia del ubigeo">
+                </div>
+                <div *ngIf="myForm.get('referencia')?.errors &&  myForm.touched ">
+                    <small class="text-danger" *ngIf="myForm.get('referencia')?.hasError('required')"> Campo requerido
+                    </small>
+                </div>
+            </div>
+            <div class="col-12 mt-3">
+                <div class="form-group">
+                    <label for="">IdPersona</label>
+                    <input formControlName="idPersona" type="text" class="form-control"
+                        placeholder="Ingrese el idPersona del ubigeo">
+                </div>
+                <div *ngIf="myForm.get('idPersona')?.errors &&  myForm.touched ">
+                    <small class="text-danger" *ngIf="myForm.get('idPersona')?.hasError('required')"> Campo requerido
+                    </small>
+                </div>
+            </div>
+            
+
+            <div class="col-6 mt-3">
+                <div class="d-grid gap-2">
+                    <button [disabled]="myForm.invalid" (click)="guardar()"
+                        class="btn-block btn btn-primary btn-sm">GUARDAR</button>
+                </div>
+            </div>
+            <div class="col-6 mt-3">
+                <div class="d-grid gap-2">
+                    <button class="btn-block btn btn-danger btn-sm">CANCELAR</button>
+                </div>
+
+            </div>
+
+        </div>
+    </form>
+
+</div>
