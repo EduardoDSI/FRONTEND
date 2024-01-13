@@ -38,7 +38,7 @@ export class MantDireccionRegisterComponent implements OnInit {
   ) {
     //nuestro formulario Direccion request
     this.myForm = this.fb.group({
-      id: [{ value: 0, disabled: true }, [Validators.required]],
+      idDireccion: [{ value: 0, disabled: true }, [Validators.required]],
       calle: [null, [Validators.required]],
       referencia: [null, [Validators.required]],
       idPersona: [null, [Validators.required]],
@@ -121,5 +121,10 @@ export class MantDireccionRegisterComponent implements OnInit {
     this.closeModalEmmit.emit(res);
 
   }
+  cancelarAccion() {
+    // Aquí puedes agregar la lógica que deseas ejecutar al hacer clic en cancelar
+    console.log('Operación cancelada');
+    this.cerrarModal(false);
+}
 
 }

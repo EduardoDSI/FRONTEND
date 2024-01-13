@@ -1,233 +1,243 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-*
-{
-margin: 0;
-padding: 0;
-box-sizing: border-box;
-font-family: 'Poppins' ,sans-serif;
-}
-.header
-{
-position: fixed;
-width: 100%;
-height: 60px;
-display: flex;
-justify-content: space-between;
-align-items: center;
-padding: 20px 100px;
-z-index: 99;
-background: transparent;
-}
-.header .nav a
-{
-text-decoration: none; 
-color: #fff;
-font-size: 17px; 
-margin-left: 20px; 
-font-weight: 600;
-}
-.header .search input
-{
-background: transparent;
-font-size: 20px;
-border-radius: S5px;
-border: 2px solid white;
-padding-left: 10px;
-right: 100px;
-outline: none;
-color: #fff;
-}
-.header .search i 
-{
-position: absolute;
-right: 110px; 
-top:22px;
-color: #fff; 
-} 
-.background
-{
-width: 100%;
-height: 100vh;
-background-image: url('../../../../pages/img/WhatsApp\ Image\ 2023-11-10\ at\ 8.27.23\ PM\ \(1\).jpeg');
-background-position: center;
-background-size: cover;
-}
-.home
-{
-position: absolute;
-top: 50%;
-left: 50%;
-width: 75%;
-height: 75%;
-transform: translate(-50% , -50%);
-background-image: url('../../../../pages/img/WhatsApp\ Image\ 2023-11-10\ at\ 8.27.23\ PM\ \(1\).jpeg');
-background-position: center;
-background-size: cover;
-display: flex;
-margin-top: 10px;
-border: 1px solid black;
-border-radius: 10px;
-border: none;
-}
-.content
-{
-display: flex;
-flex-direction: column;
-width: 700px;
-padding: 100px 0;
-}
-.content a
-{
-position: relative;
-text-decoration: none;
-color: #fff;
-font-size: 3em;
-font-weight: 700;
-top: -40px;
-left: 80px;
-}
-.content h2
-{
-font-size: 3.5em;
-text-align: center;
-color: #fff;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
 
-}
-.content h3
-{
-font-size: 2em;
-text-align: center;
-color: #fff;
-}
-.content pre
-
-{
-margin-top: 20px;
-text-align: center;
-font-size: 1lem;
-color: #fff;
-}
-.content .icon
-{
-margin-top: 20px;
-font-size: 1.5em;
-display: flex;
-justify-content: center;
-
-}
-.content .icon i
-{
-margin-left: 20px;
-color: #fff;
-}
-.login
-{
-width: 450px;
-position: relative;
-padding: 100px 30px;
-backdrop-filter: blur(20px);
-
-}
-.login h2
-{
-font-size: 2em;
-text-align: center;
-margin-bottom: 20px;
-color: #fff;
-}
-.login .input 
-
-{ 
-position: relative;
-width: 100%;
-height: 30px;
-margin-bottom: 40px
-
-} 
-.login .input .input1
-{
-font-size: 16px;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-background: transparent;
-border: none;
-outline: none;
-border-bottom: 2px solid #fff;
-color: #fff;
-width: 100%;
-height: 100%;
-}
-::placeholder
-{
-color: #fff; 
-font-size: 18px;
-}
-.login .input i 
-{ 
-position: relative; 
-right: -370px; 
-bottom: 27px; 
-color: #fff; 
-}
-.check 
-{
-display: flex; 
-justify-content: space-between; 
-margin-bottom: 40px; 
-color: #fff; 
-} 
-.check a
-{ 
-text-decoration: none; 
-color:#fff;
-} 
-.check a:hover
-{ 
-text-decoration: underline;
-} 
-.login .button
-{ 
-width: 100%; 
-height: 40px;
-margin-bottom: 15px; 
-} 
-button
-{
-width: 100%;
-height: 40px;
-background-color: crimson;
-border: none;
-outline: none;
-font-size: 20px;
-font-weight: 700;
-border-radius: 7px;
-color: #fff;
-
-}
-button:active
-{
-font-size:25px ;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'poppins',sans-serif;
 }
 
 
-.login .sign-up
-{
-display: flex;
-justify-content: center;
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-image: url('../../../../../assets/img/desktop-wallpaper-sunrise-on-sea-ocean-sunrise.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+//   filter: brightness(0.8);
 }
-.login .sign-up a
-{
-text-decoration: none;
-color: #fff;
-font-weight: 700;
+
+section {
+    position: relative;
+    max-width: 400px;
+    background-color: rgba(228, 235, 247, 0.9); 
+    color: #030303; 
+    border: 2px solid rgb(71, 70, 70);
+    border-radius: 5px;
+    backdrop-filter: blur(55px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 5rem;
 }
-.login .sign-up p
-{
-color: #fff;
+
+h1 {
+    font-size: 2rem;
+    color: #000000;
+    text-align: center;
+    margin: -20px 0 15px ;
 }
-.sign-up a:hover
-{
-text-decoration: underline;
+.mensaje{
+    font-size: 1rem;
+    color: #000000;
+    text-align: center;
+    margin: -5px 0 35px 0;
 }
+
+/* Estilos para centrar el texto en el select */
+
+
+/* Estilos para el contenedor de selección */
+.inputbox select {
+    padding: 5px;
+    width: 300px;
+    border: 2px solid rgba(39, 39, 39, 0.9);
+    border-radius: 4px;
+    display: block;
+    margin: -15px 0;
+    text-align: center; /* Alineación centrada del texto en el select */
+}
+
+/* Estilos para las opciones dentro del select */
+.inputbox select option {
+    text-align: center; /* Alineación centrada del texto de las opciones */
+}
+
+
+
+// .inputbox {
+//     position: relative;
+//     margin: 25px 0;
+//     max-width: 310px;
+//     border-bottom: 2px solid #0a0a0a;
+// }
+.inputbox {
+    margin: 20px 0 -12px 0;
+    min-width: 200px;
+    height: 60px;
+    position: relative;
+    }
+
+// .inputbox label {
+//     position: absolute;
+//     top: 50%;
+//     left: 5px;
+//     transform: translateY(-50%);
+//     color: #050505;
+//     font-size: 1rem;
+//     pointer-events: none;
+//     transition: all 0.5s ease-in-out;
+// }
+
+// .inputbox label {
+//     text-align:left;
+//     position: absolute;
+//     width: 40%;
+//     background-color: white;
+//     margin-top: 10px;
+//     left: 5px;
+//     pointer-events: none;
+//     z-index: 1;
+//     font-size: 1rem;
+//     transition: all .4s ease;
+// }
+.inputbox label {
+    text-align: left;
+    position: absolute;
+    width: 100%;
+    margin-top: -22px;
+    left: 0;
+    pointer-events: none;
+    z-index: 1;
+    font-size: 1rem;
+    transition: all .4s ease;
+}
+
+// input:focus ~ label, 
+// input:valid ~ label {
+//     top: -5px;
+// }
+
+// .inputbox input {
+//     width: 100%;
+//     height: 50px;
+//     background: transparent;
+//     border: none;
+//     outline: none;
+//     font-size: 1rem;
+//     padding: 0 35px 0 5px;
+//     color: #0c0c0c;
+// }
+.inputbox input {
+    padding: 15px;  /* Ajusta según lo que necesites */
+    height: 45px;   /* Ajusta según lo que necesites y puede centrar el texto verticalmente */
+    line-height: 60px; /* Esto ayudará a centrar el texto verticalmente */
+    width: 300px;
+    z-index: 99;
+    border: 2px solid rgba(39, 39, 39, 0.9);
+    border-radius: 5px;
+    outline: none; 
+    transition: border-color .3s ear;
+    }
+// .inputbox input:focus { 
+//     border-color: rgb(8, 8, 8); 
+// } 
+// .inputbox input:focus~label {
+//     margin-top: -10px; 
+//     left: 5px; 
+//     background-color: white; 
+//     font-size: 16px; 
+// }
+
+.inputbox i {
+    position: absolute;
+    right: 8px;
+    color: #050505;
+    font-size: 1.2rem;
+    top: 10px;
+}
+
+.forget {
+    margin: 2px 0 20px;
+    font-size: 0.85rem;
+    color: #080808;
+    display: flex;
+    justify-content: space-between;
+ 
+}
+
+.forget label {
+    display: flex;
+    align-items: center;
+}
+
+.forget label input {
+    margin-right: 3px;
+}
+
+.forget a {
+    color: #080808;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.forget a:hover {
+    text-decoration: underline;
+}
+
+button {
+    width: 100%;
+    height: 40px;
+    border-radius: 40px;
+    background-color: crimson;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.4s ease;
+}
+.login-btn {
+    color: #141313; 
+}
+
+
+button:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.register {
+    font-size: 0.9rem;
+    color: #070707;
+    text-align: center;
+    margin: 15px 0 5px;
+}
+
+.register p a {
+    text-decoration: none;
+    color: #0c0c0c;
+    font-weight: 600;
+}
+
+.register p a:hover {
+    text-decoration: underline;
+}
+.continuar p {
+    text-align: center;
+  }
+  
+  .icon {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+  }
+  
+  
+  .icon i {
+    font-size: 2em; 
+    margin: 5px 0 -15px; 
+  }
+  

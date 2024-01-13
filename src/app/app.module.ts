@@ -12,6 +12,9 @@ import { AuthInterceptor } from './services/auth.interceptor';
 import { TiendaComponent } from './pages/tienda/tienda/tienda.component';
 import { MedioComponent } from './pages/medio/medio/medio.component';
 import { SomosComponent } from './pages/somos/somos/somos.component';
+import { PerfilListComponent } from './pages/usuario-perfil/perfil-list/perfil-list.component';
+import { PerfilGuardComponent } from './pages/usuario-perfil/perfil-guard/perfil-guard.component';
+import { CarritoListComponent } from './pages/carrito/carrito-list/carrito-list.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,10 @@ import { SomosComponent } from './pages/somos/somos/somos.component';
     WelcomeComponent,
     TiendaComponent,
     MedioComponent,
-    SomosComponent
+    SomosComponent,
+    PerfilListComponent,
+    PerfilGuardComponent,
+    CarritoListComponent
   ],
   imports: [
     BrowserModule,

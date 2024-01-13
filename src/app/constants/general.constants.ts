@@ -1,7 +1,4 @@
 
-
-
-
 //dice que el valor no va a cambiar en el tiempo
 
 export const AccionMantConst = {
@@ -9,8 +6,6 @@ export const AccionMantConst = {
     editar: 2,
     eliminar: 3
 }
-
-
 
 const nombre = "Soto Galvan";
 

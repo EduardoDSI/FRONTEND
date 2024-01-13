@@ -1,29 +1,128 @@
-/* Agrega un margen derecho a los elementos hijos directos de la clase .navbar */
+/* Estilos de la barra de navegación */
 .navbar > * {
-    margin-right: 15px; /* Puedes ajustar el valor según sea necesario */
+    margin-right: 15px;
 }
 
-/* Agrega un margen derecho al último elemento hijo de la clase .navbar para evitar espacio adicional */
-.navbar > :last-child {
-    margin-right: 0;
+.navbar-brand .logo-img {
+    width: 80px;
+    margin-left: -200px;
 }
-/* Ajustes específicos para los iconos de búsqueda y carrito */
+
+.navbar-brand .wifi {
+    margin-right: 100px;
+    font-weight: bold;
+    color: #2b3ee6;
+}
+
+.nav-link.active {
+  border-bottom: 2px solid #ffffff;
+  transition: border-bottom 0.3s ease;
+}
+
+/* Estilos adicionales cuando el enlace está activo */
+.nav-link.active {
+  border-bottom: 2px solid #0d7ee7;
+  background-color: #ffffff;
+  color: #007bff;
+  transition: all 0.3s ease;
+}
+
+
+.paginas .nav-item .nav-link {
+    font-family: 'TuFuentePersonalizada', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #000000;
+    transition: color 0.3s;
+}
+
+.paginas .nav-item .nav-link:hover {
+    color: #007bff;
+    border-bottom: 2px solid #007bff;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #fdfdfd;
+    color: #070707;
+    border: 1px solid #a5cdf8;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    color: #fff;
+}
+
+/* Estilos para íconos y otros elementos en la barra de navegación */
 .navbar .fa-search,
-.navbar .fa-cart-arrow-down {
-    margin-right: 20px; /* Ajusta el margen derecho según sea necesario */
-    font-size: 20px; /* Ajusta el tamaño de fuente según sea necesario */
+.navbar .fa-cart-arrow-down,
+.navbar .fa-user {
+    margin-right: 20px;
+    font-size: 20px;
 }
 
-/* Alinea verticalmente los iconos en la barra de navegación */
+
 .navbar .navbar-collapse .navbar-nav .nav-link i {
     vertical-align: middle;
 }
 
-/* Estilo adicional para el botón adicional */
 .navbar .ms-auto button {
-    margin-left: 20px; /* Ajusta el margen izquierdo según sea necesario */
+    margin-left: 40px;
 }
-.first-image {
-    width: 600px;
-    height: 600px;
+
+/* Estilos para el contenedor de búsqueda */
+.search-container {
+    display: flex;
+    align-items: center;
 }
+
+.search-input {
+    height: 30px;
+    padding: 5px;
+    border: none;
+    border-bottom: 2px solid #0a0a0a;
+    border-radius: 0;
+    outline: none;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+.search-icon {
+    color: #050505;
+    font-size: 20px;
+}
+
+/* Estilos para el carrusel */
+#template-mo-zay-hero-carousel {
+    width: 100%;
+}
+
+.carousel-inner .carousel-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 25px;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: transparent;
+    color: #fff;
+    font-size: 24px;
+}
+
+/* ... Puedes continuar con otros estilos aquí ... */

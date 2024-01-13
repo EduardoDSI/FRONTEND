@@ -25,6 +25,7 @@ export class MantPedidoListComponent implements OnInit {
   totalItems: number = 0;
   myFormFilter: any;
   itemsPerPage: any;
+  currentPage: number = 1;
   request: GenericFilterRequest = new GenericFilterRequest();
 
 
@@ -85,14 +86,13 @@ export class MantPedidoListComponent implements OnInit {
   }
 
 
-  getCloseModalEmmit(res:boolean)
-  {
+  getCloseModalEmmit(res: boolean) {
     this.modalRef?.hide();
-    if(res)
-    {
+    if (res) {
       this.listarPedidos();
+      this.request.numeroPagina = this.currentPage; // Establece el número de página al valor almacenado.
+      this.filtrar();
     }
-
   }
 
 
@@ -139,6 +139,7 @@ filtrar() {
   }
 
   changePage(event: PageChangedEvent) {
+    this.currentPage = event.page; // Almacena la página actual.
     this.request.numeroPagina = event.page;
     this.filtrar();
   }

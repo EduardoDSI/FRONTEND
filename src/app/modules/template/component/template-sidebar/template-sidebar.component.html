@@ -1,23 +1,67 @@
 <div class="nav">
-    <div class="sb-sidenav-menu-heading">Core</div>
+    <div class="d-flex align-items-center ms-5 ">
+        <div class="position-relative">
+            <a routerLink="/usuarioPerfil">
+                <img class="rounded-circle" src="#" alt="" style="width: 40px; height: 40px;">
+            </a>
+            <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
+        </div>
+        <div class="ms-4">
+            <h6 class="mb-0">Eduardo...</h6>
+            <span>Admin</span>
+        </div>
+    </div>
+    <!-- <div class="sb-sidenav-menu-heading">Core</div>
     <a class="nav-link" href="index.html">
         <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
         Pagina principal
-    </a>
+    </a> -->
     <div class="sb-sidenav-menu-heading">Interface</div>
-    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts"
-        aria-expanded="false" aria-controls="collapseLayouts">
+    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseMantenimiento"
+        aria-expanded="false" aria-controls="collapseMantenimiento">
         <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-        Mantenimiento
+        Venta
         <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
     </a>
-    <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne"
+    <div class="collapse" id="collapseMantenimiento" aria-labelledby="headingMantenimiento"
         data-bs-parent="#sidenavAccordion">
+        <nav class="sb-sidenav-menu-nested nav">  
+            <a class="nav-link" [routerLink]="['mantenimiento/persona']">
+                <i class="bi bi-people"></i> Cliente
+            </a>
+            <a class="nav-link" [routerLink]="['mantenimiento/pedido']">
+                <i class="bi bi-cart-dash-fill"></i> Pedido
+            </a>
+               
+           
+        </nav>
+    </div>
+    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseContrato"
+        aria-expanded="false" aria-controls="collapseContrato">
+        <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+        Contrato
+        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+    </a>
+    <div class="collapse" id="collapseContrato" aria-labelledby="headingContrato"
+        data-bs-parent="#sidenavAccordion">
+        <a class="nav-link" [routerLink]="['mantenimiento/contrato']">
+            <i class="bi bi-cart-dash-fill"></i> Contrato
+        </a> 
+    </div>
+    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseUbicacion"
+        aria-expanded="false" aria-controls="collapseUbicacion">
+        <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+        Ubicación
+        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+    </a>
+    <div class="collapse" id="collapseUbicacion" aria-labelledby="headingUbicacion" data-bs-parent="#sidenavAccordion">
         <nav class="sb-sidenav-menu-nested nav">
-            <a class="nav-link" [routerLink]="['mantenimiento/ubigeo']">Ubigeo</a>
-            <a class="nav-link" [routerLink]="['mantenimiento/direccion']">Direccion</a>
-            <a class="nav-link" [routerLink]="['mantenimiento/pedido']">Pedido</a>
-            <a class="nav-link" href="layout-sidenav-light.html">Persona</a>
+            <a class="nav-link" [routerLink]="['mantenimiento/ubigeo']">
+                <i class="bi bi-geo-alt-fill"></i> Ubigeo
+            </a>
+            <a class="nav-link" [routerLink]="['mantenimiento/direccion']">
+                <i class="bi bi-geo-alt-fill"></i> Direccion
+            </a>
         </nav>
     </div>
 </div>

@@ -6,6 +6,9 @@ import { authGuard } from './guard/auth.guard';
 import { TiendaComponent } from './pages/tienda/tienda/tienda.component';
 import { MedioComponent } from './pages/medio/medio/medio.component';
 import { SomosComponent } from './pages/somos/somos/somos.component';
+import { PerfilListComponent } from './pages/usuario-perfil/perfil-list/perfil-list.component';
+import { PerfilGuardComponent } from './pages/usuario-perfil/perfil-guard/perfil-guard.component';
+import { CarritoListComponent } from './pages/carrito/carrito-list/carrito-list.component';
 
 const routes: Routes = [
 
@@ -22,6 +25,15 @@ const routes: Routes = [
   },
   {
     path: 'somos', component: SomosComponent
+  },
+  {
+    path: 'usuarioPerfil', component: PerfilListComponent
+  },
+  {
+    path: 'carrito', component: CarritoListComponent
+  },
+  {
+    path: 'usuarioEdit', component: PerfilGuardComponent
   },
 
   //vamos a hacer uso de un lazy loading

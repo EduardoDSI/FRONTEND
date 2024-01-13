@@ -1,0 +1,170 @@
+<div class="container-fluid px-4 mt-5">
+    <div class="card bg-light mb-3">
+        <div class="card-header text-center">
+            <h1 class="mt-4">MANTENIMIENTO DE PERSONAS</h1>
+        </div>
+        <div class="card-body">
+            <form [formGroup]="myFormFilter">
+
+                <div class="card bg-light mb-3">
+                    <div class="card-header">BUSQUEDA</div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-3">
+                                <div class="form-group">
+                                    <label for="">Id</label>
+                                    <input formControlName="idPersona" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="form-group">
+                                    <label for="">Nombres</label>
+                                    <input formControlName="nombres" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="form-group">
+                                    <label for="">ApellidoPaterno</label>
+                                    <input formControlName="apellidoPaterno" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="form-group">
+                                    <label for="">ApellidoMaterno</label>
+                                    <input formControlName="apellidoMaterno" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="form-group">
+                                    <label for="">FechaNacimiento</label>
+                                    <input formControlName="fechaNacimiento" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="form-group">
+                                    <label for="">CorreoElectronico</label>
+                                    <input formControlName="correoElectronico" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="form-group">
+                                    <label for="">Telefono</label>
+                                    <input formControlName="numeroCelular" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="form-group">
+                                    <label for="">TipoPersona</label>
+                                    <input formControlName="tipoPersona" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="form-group">
+                                    <label for="">NroIdentificacion</label>
+                                    <input formControlName="nroIdentificacion" type="text" class="form-control">
+                                </div>
+                            </div>
+                            
+                            <div class="col-3">
+                                <div class="form-group">
+                                    <br>
+                                    <button (click)="filtrar()" class="btn btn-primary btn-sm">
+                                        <i class="fas fa-search"></i>
+                                    </button>
+                                    <button class="btn btn-danger btn-sm">
+                                        <i class="fas fa-broom"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombres</th>
+                        <th>Apellido
+                            Paterno</th>
+                        <th>Apellido
+                            Materno</th>
+                        <th>Fecha
+                            Nacimiento</th>
+                        <th>E-mail</th>
+                        <th>Telefono</th>
+                        <th>TipoPersona</th>
+                        <th>NroIdentificacion</th>
+                        <!-- <th>IdTipoDocumento</th> -->
+                        <th>
+                            <button (click)="crearpersona(modalEdit)" class="btn btn-primary btn-sm">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let persona of personas">
+                        <td> {{persona.idPersona}} </td>
+                        <td> {{persona.nombres}} </td>
+                        <td> {{persona.apellidoPaterno}} </td>
+                        <td> {{persona.apellidoMaterno}} </td>
+                        <td> {{persona.fechaNacimiento}} </td>
+                        <td> {{persona.correoElectronico}} </td>
+                        <td> {{persona.numeroCelular}} </td>
+                        <td> {{persona.tipoPersona}} </td>
+                        <td> {{persona.nroIdentificacion}} </td>
+                        <!-- <td> {{persona.idTipoDocumento}} </td> -->
+                    
+                        <td>
+                            <button (click)="editarpersona(modalEdit,persona)" class="btn btn-primary btn-sm">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button (click)="eliminarRegistro(persona.idPersona)" class="btn btn-danger btn-sm">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="row">
+                <div class="col-xs-8 col-8">
+
+                    <pagination (pageChanged)="changePage($event)" [totalItems]="totalItems"
+                        [itemsPerPage]="itemsPerPage" [previousText]="'Anterior'" [nextText]="'Siguiente'">
+                    </pagination>
+
+                </div>
+
+                <div class="col-xs-4 col-4">
+
+                    <select (change)="changeItemsPerPage()" [(ngModel)]="itemsPerPage" class="form-select">
+                        <option value="3">3</option>
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                        <option value="30">30</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                    </select>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<ng-template #modalEdit>
+    <app-mant-persona-register
+    [title]="titleModal"
+    [Persona]="personaSelected"
+    [accion]="accionModal"
+    (closeModalEmmit)="getCloseModalEmmit($event)"
+    ></app-mant-persona-register>
+</ng-template>
+
+

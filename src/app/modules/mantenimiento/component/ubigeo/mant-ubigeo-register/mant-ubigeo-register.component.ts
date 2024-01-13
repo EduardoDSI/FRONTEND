@@ -10,7 +10,7 @@ import { convertToBoolean } from 'src/app/functions/general.functions';
 @Component({
   selector: 'app-mant-Ubigeo-register',
   templateUrl: './mant-Ubigeo-register.component.html',
-  styleUrls: ['./mant-Ubigeo-register.component.scss']
+  styleUrls: ['./mant-ubigeo-register.component.scss']
 })
 export class MantUbigeoRegisterComponent implements OnInit {
 
@@ -38,7 +38,7 @@ export class MantUbigeoRegisterComponent implements OnInit {
   ) {
     //nuestro formulario Ubigeo request
     this.myForm = this.fb.group({
-      id: [{ value: 0, disabled: true }, [Validators.required]],
+      idUbigeo: [{ value: 0, disabled: true }, [Validators.required]],
       departamento: [null, [Validators.required]],
       provincia: [null, [Validators.required]],
       distrito: [null, [Validators.required]],

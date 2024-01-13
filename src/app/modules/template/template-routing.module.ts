@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TemplateComponent } from './component/template/template.component';
+import { PerfilListComponent } from 'src/app/pages/usuario-perfil/perfil-list/perfil-list.component';
 
 const routes: Routes = [
   {
@@ -11,6 +12,9 @@ const routes: Routes = [
       },
       {
         path: 'reportes', loadChildren: () => import("./../mantenimiento/mantenimiento.module").then(x => x.MantenimientoModule)
+      },
+      {
+        path: 'usuarioPerfil', component: PerfilListComponent // Nueva ruta al componente PerfilListComponent
       },
     ]
   },

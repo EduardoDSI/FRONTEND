@@ -2,65 +2,61 @@
  <html lang= "en">
  <head>
      <meta charset= "UTF-8">
-     <meta name= "viewport" content= "width-device-width, initial-scale=1.0">
-     <!-- <link rel= "stylesheet" href="./login.component.scss"> -->
-     <!-- <script src="https://kit.fontawesome.com/c9f5871d83.js" crossorigin= "anonymous"></script> -->
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>login3</title>
  </head>
  <body>
-        <header class="header">
-            <nav class="nav">
-                <a href="#"> Home </a>
-                <a routerLink="/tienda"> Tienda </a>
-                <a routerLink="/medio"> Medios </a>
-                <a routerLink="/somos"> Somos </a>
-            </nav>
-            <div class="search">
-                <input type="text" placeholder="Search... ">
-              <a><i class="bi bi-search"></i></a>
+    <section>
+        <form [formGroup]="loginForm">
+            <h1>Login</h1>
+            <div class="mensaje">
+                <p>"Bienvenido, inicia sesión para continuar."</p>
             </div>
-        </header>
-        <div class="background"></div>
-        <section class="home">
-            <div class="content">
-                <a href="#" class="logo"> Codehal</a>
-                <h2> Welcomet</h2>
-                <h3> To Our Nem Website </h3>
-                <pre> Lorem ipsum, dolor sit amen consenter
-                adipisicing elit. Beatae,asperiores </pre>
-                <div class="icon">
+            <div class="inputbox">
+                <select class="form-control centered-select" id="tipoInicio">
+                    <option value="Cliente">Cliente</option>
+                    <option value="Administrador">Administrador</option>
+                    <option value="Tecnico">Tecnico</option>
+                </select>
+            </div>
+            <div class="inputbox">
+                <i class="bi bi-envelope-fill"></i>
+                <input formControlName="usuario" type="email" placeholder="Email" required>
+                <label >Username</label>
+            </div>
+            
+            <div class="inputbox">
+                <span class="eye" (click)="togglePasswordVisibility()">
+                    <i *ngIf="!showPassword" id="hide1" class="bi bi-eye-slash-fill"></i>
+                    <i *ngIf="showPassword" id="hide2" class="bi bi-eye-fill"></i>
+                </span>           
+                <input 
+                    id="myInput" 
+                    [type]="showPassword ? 'text' : 'password'" 
+                    formControlName="contraseña" 
+                    placeholder="password" 
+                    required>
+                <label>Password</label>
+            </div>
+            <div class="forget">
+                <label for=""><input type="checkbox">Remember Me</label>
+              <a href="#">Forget Password</a>
+            </div>
+            <button class="login-btn" [disabled]="loginForm.invalid" (click)="login()">Log in</button>
+            <div class="register">
+                <p>Don't have a account <a href="#">Register</a></p>
+            </div>
+            <hr>
+            <div class="continuar">
+                <p>Continuar con</p>
+            </div>
+            <div class="icon">
                 <i class="bi bi-instagram"></i>
                 <i class="bi bi-facebook"></i>
                 <i class="bi bi-whatsapp"></i>
-                </div>
-
             </div>
-            <div class="login">
-            <form [formGroup]="loginForm">
-                <h2> Sign In</h2>     
-                <div class="input">
-                    <input formControlName="usuario"type="text" class="input1" placeholder="Email" required>
-                    <i class="bi bi-envelope"></i>                
-                </div>
-                <div class="input">
-                    <input formControlName="contraseña" type="password" class="input1" placeholder="Password" required>
-                    <i class="bi bi-lock"></i>
-                      
-                </div>
-                <!-- <div class="check">
-                    <label> <input id="chk">Mostrar Contraseña</label>
-                    <a href="#"> Forgot Password?</a>
-                </div> -->
-                <div class="button">
-                    <button [disabled]="loginForm.invalid" (click)="login()"class="btn"> Sign In </button>
-                </div>
-                <div class="sign-up">
-                    <p> Don't have an account?</p>
-                    <a href="#"> Sign up</a>
-                </div>
-            </form>
-            </div>
-      </section>
+        </form>
+    </section>
 </body>
 </html> 
     

@@ -1,0 +1,163 @@
+<div class="container-fluid px-4 mt-5">
+    <div class="card bg-light mb-3">
+        <div class="card-header text-center">
+            <h1 class="mt-4">MANTENIMIENTO DE CONTRATOS</h1>
+        </div>
+        <div class="card-body">
+            <form [formGroup]="myFormFilter">
+
+                <div class="card bg-light mb-3">
+                    <div class="card-header">BUSQUEDA</div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-3">
+                                <div class="form-group">
+                                    <label for="">Id</label>
+                                    <input formControlName="idContrato" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="form-group">
+                                    <label for="">DuracionContratoMes</label>
+                                    <input formControlName="duracionContratoMes" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="form-group">
+                                    <label for="">FechaContrato</label>
+                                    <input formControlName="fechaContrato" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="form-group">
+                                    <label for="">FechaVenContrato</label>
+                                    <input formControlName="fechaVenContrato" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="form-group">
+                                    <label for="">TipoComprobante</label>
+                                    <input formControlName="tipoComprobante" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="form-group">
+                                    <label for="">ModoPago</label>
+                                    <input formControlName="modoPago" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="form-group">
+                                    <label for="">MontoTarifaPlana</label>
+                                    <input formControlName="montoTarifaPlana" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="form-group">
+                                    <label for="">MontoPagado</label>
+                                    <input formControlName="montoPagado" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="form-group">
+                                    <label for="">Estado</label>
+                                    <input formControlName="estado" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="form-group">
+                                    <br>
+                                    <button (click)="filtrar()" class="btn btn-primary btn-sm">
+                                        <i class="fas fa-search"></i>
+                                    </button>
+                                    <button class="btn btn-danger btn-sm">
+                                        <i class="fas fa-broom"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>DuracionMes</th>
+                        <th>FechaContrato</th>
+                        <th>FechaVenta</th>
+                        <th>TipoComprobante</th>
+                        <th>ModoPago</th>
+                        <th>MontoTarifaPlana</th>
+                        <th>MontoPagado</th>
+                        <th>Estado</th>
+                        <th>
+                            <button (click)="crearcontrato(modalEdit)" class="btn btn-primary btn-sm">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let contrato of contratos">
+                        <td> {{contrato.idContrato}} </td>
+                        <td> {{contrato.duracionContratoMes}} </td>
+                        <td> {{contrato.fechaContrato}} </td>
+                        <th>{{contrato.fechaVenContrato}}</th>
+                        <th>{{contrato.tipoComprobante}}</th>
+                        <th>{{contrato.modoPago}}</th>
+                        <th>{{contrato.montoTarifaPlana}}</th>
+                        <th>{{contrato.montoPagado}}</th>
+                        <th>{{contrato.estado}}</th>
+                        <td>
+                            <button (click)="editarcontrato(modalEdit,contrato)" class="btn btn-primary btn-sm">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button (click)="eliminarRegistro(contrato.idContrato)" class="btn btn-danger btn-sm">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="row">
+                <div class="col-xs-8 col-8">
+
+                    <pagination (pageChanged)="changePage($event)" [totalItems]="totalItems"
+                        [itemsPerPage]="itemsPerPage" [previousText]="'Anterior'" [nextText]="'Siguiente'">
+                    </pagination>
+
+                </div>
+
+                <div class="col-xs-4 col-4">
+
+                    <select (change)="changeItemsPerPage()" [(ngModel)]="itemsPerPage" class="form-select">
+                        <option value="3">3</option>
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                        <option value="30">30</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                    </select>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<ng-template #modalEdit>
+    <app-mant-contrato-register
+    [title]="titleModal"
+    [Contrato]="contratoSelected"
+    [accion]="accionModal"
+    (closeModalEmmit)="getCloseModalEmmit($event)"
+    ></app-mant-contrato-register>
+</ng-template>
+
+

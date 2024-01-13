@@ -18,7 +18,12 @@ import { MantDeudaListComponent } from './component/deuda/mant-deuda-list/mant-d
 import { MantDeudaRegisterComponent } from './component/deuda/mant-deuda-register/mant-deuda-register.component';
 import { MantPedidoListComponent } from './component/pedido/mant-pedido-list/mant-pedido-list.component';
 import { MantPedidoRegisterComponent } from './component/pedido/mant-pedido-register/mant-pedido-register.component';
-
+import { MantPersonaListComponent } from './component/persona/mant-persona-list/mant-persona-list.component';
+import { MantPersonaRegisterComponent } from './component/persona/mant-persona-register/mant-persona-register.component';
+import { MantUsuarioListComponent } from './component/usuario/mant-usuario-list/mant-usuario-list.component';
+import { MantUsuarioRegisterComponent } from './component/usuario/mant-usuario-register/mant-usuario-register.component';
+import { MantContratoListComponent } from './component/contrato/mant-contrato-list/mant-contrato-list.component';
+import { MantContratoRegisterComponent } from './component/contrato/mant-contrato-register/mant-contrato-register.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +34,14 @@ import { MantPedidoRegisterComponent } from './component/pedido/mant-pedido-regi
     MantDeudaListComponent,
     MantDeudaRegisterComponent,
     MantPedidoListComponent,
-    MantPedidoRegisterComponent
+    MantPedidoRegisterComponent,
+    MantPersonaListComponent,
+    MantPersonaRegisterComponent,
+    MantUsuarioListComponent,
+    MantUsuarioRegisterComponent,
+    MantContratoListComponent,
+    MantContratoRegisterComponent,
+    
     
   ],
   imports: [

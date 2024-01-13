@@ -1,6 +1,8 @@
 
 
 export const dominio = "https://localhost:7162/";
+// export const dominio = "https://wifihome.somee.com/";
+
 
 
 export const urlConstants = {
@@ -13,6 +15,6 @@ export const urlConstants = {
     direccion: dominio + "api/direccion/",
     detalleDeuda: dominio + "api/detalleDeuda/",
     deuda: dominio + "api/deuda/",
-    pedido: dominio + "api/pedido/"
-
+    pedido: dominio + "api/pedido/",
+    contrato: dominio + "api/contrato/"
 }

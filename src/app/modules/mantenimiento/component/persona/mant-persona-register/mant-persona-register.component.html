@@ -1,0 +1,141 @@
+<div class="modal-header">
+    <h4 class="modal-title pull-left">{{ title }}</h4>
+    <button type="button" (click)="cancelarAccion()" class="btn-close close pull-right" aria-label="Close">
+        <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+</div>
+
+<div class="modal-body">
+    <form [formGroup]="myForm">
+        <div class="row">
+
+            <!-- ID -->
+            <div class="col-12 mt-3">
+                <div class="form-group">
+                    <label for="idPersona">ID</label>
+                    <input formControlName="idPersona" id="idPersona" type="text" class="form-control" placeholder="Ingrese el Identificador">
+                </div>
+            </div>
+
+            <!-- Tipo de Documento -->
+            <div class="col-12 mt-3">
+                <div class="form-group">
+                    <label for="tipoDocumento">Tipo de Documento</label>
+                    <select formControlName="tipoDocumento" id="tipoDocumento" class="form-control">
+                        <option value="dni">DNI</option>
+                        <option value="ruc">RUC</option>
+                    </select>
+                    <div *ngIf="myForm.get('tipoDocumento')?.errors && myForm.touched">
+                        <small class="text-danger" *ngIf="myForm.get('tipoDocumento')?.hasError('required')">Campo requerido</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Número de DNI/RUC -->
+            <div class="col-12 mt-3">
+                <div class="form-group">
+                    <label for="nroIdentificacion">Número de DNI/RUC</label>
+                    <input formControlName="nroIdentificacion" id="nroIdentificacion" type="text" class="form-control" placeholder="Ingrese DNI o RUC">
+                    <div *ngIf="myForm.get('nroIdentificacion')?.errors && myForm.touched">
+                        <small class="text-danger" *ngIf="myForm.get('nroIdentificacion')?.hasError('required')">Campo requerido</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 mt-3">
+                <div class="d-grid gap-2">
+                    <button (click)="buscarPersona()" class="btn-block btn btn-info btn-sm">BUSCAR</button>
+                </div>
+            </div>
+            
+            <!-- Nombres -->
+            <div class="col-12 mt-3">
+                <div class="form-group">
+                    <label for="nombres">Nombres</label>
+                    <input formControlName="nombres" id="nombres" type="text" class="form-control" placeholder="Ingrese el nombre">
+                    <div *ngIf="myForm.get('nombres')?.errors && myForm.touched">
+                        <small class="text-danger" *ngIf="myForm.get('nombres')?.hasError('required')">Campo requerido</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Apellido Paterno -->
+            <div class="col-12 mt-3">
+                <div class="form-group">
+                    <label for="apellidoPaterno">Apellido Paterno</label>
+                    <input formControlName="apellidoPaterno" id="apellidoPaterno" type="text" class="form-control" placeholder="Ingrese el apellido paterno">
+                    <div *ngIf="myForm.get('apellidoPaterno')?.errors && myForm.touched">
+                        <small class="text-danger" *ngIf="myForm.get('apellidoPaterno')?.hasError('required')">Campo requerido</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 mt-3">
+                <div class="form-group">
+                    <label for="apellidoMaterno">Apellido Materno</label>
+                    <input formControlName="apellidoMaterno" id="apellidoMaterno" type="text" class="form-control" placeholder="Ingrese el apellido Materno">
+                    <div *ngIf="myForm.get('apellidoMaterno')?.errors && myForm.touched">
+                        <small class="text-danger" *ngIf="myForm.get('apellidoMaterno')?.hasError('required')">Campo requerido</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fecha de Nacimiento -->
+            <div class="col-12 mt-3">
+                <div class="form-group">
+                    <label for="fechaNacimiento">Fecha de Nacimiento</label>
+                    <input formControlName="fechaNacimiento" id="fechaNacimiento" type="date" class="form-control" placeholder="Ingrese la fecha de nacimiento de la persona">
+                    <div *ngIf="myForm.get('fechaNacimiento')?.errors && myForm.touched">
+                        <small class="text-danger" *ngIf="myForm.get('fechaNacimiento')?.hasError('required')">Campo requerido</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Correo Electrónico -->
+            <div class="col-12 mt-3">
+                <div class="form-group">
+                    <label for="correoElectronico">Correo Electrónico del Usuario</label>
+                    <input formControlName="correoElectronico" id="correoElectronico" type="email" class="form-control" placeholder="ejemplo@dominio.com">
+                    <div *ngIf="myForm.get('correoElectronico')?.errors && myForm.touched">
+                        <small class="text-danger" *ngIf="myForm.get('correoElectronico')?.hasError('required')">Campo requerido</small>
+                        <small class="text-danger" *ngIf="myForm.get('correoElectronico')?.hasError('pattern')">Por favor, ingresa un correo electrónico válido.</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Teléfono -->
+            <div class="col-12 mt-3">
+                <div class="form-group">
+                    <label for="numeroCelular">Teléfono</label>
+                    <input formControlName="numeroCelular" id="numeroCelular" type="text" class="form-control" placeholder="Ingrese el número de teléfono">
+                    <div *ngIf="myForm.get('numeroCelular')?.errors && myForm.touched">
+                        <small class="text-danger" *ngIf="myForm.get('numeroCelular')?.hasError('required')">Campo requerido</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 mt-3">
+                <div class="form-group">
+                    <label for="tipoPersona">Tipo de Persona</label>
+                    <select formControlName="tipoPersona" class="form-control" id="tipoPersona">
+                        <option value="Natural">Natural</option>
+                        <option value="juridica">Juridica</option>
+                    </select>
+                    
+                    <!-- Validación -->
+                    <div *ngIf="myForm.get('tipoPersona')?.errors && myForm.touched">
+                        <small class="text-danger" *ngIf="myForm.get('tipoPersona')?.hasError('required')">Campo requerido</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 mt-3">
+                <div class="d-grid gap-2">
+                    <button [disabled]="myForm.invalid" (click)="guardar()" class="btn-block btn btn-primary btn-sm">GUARDAR</button>
+                </div>
+            </div>
+            <div class="col-6 mt-3">
+                <div class="d-grid gap-2">
+                    <button (click)="cancelarAccion()" class="btn-block btn btn-danger btn-sm">CANCELAR</button>
+                </div>
+            </div>
+
+        </div>
+    </form>
+</div>

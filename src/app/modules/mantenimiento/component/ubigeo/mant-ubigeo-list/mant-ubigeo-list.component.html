@@ -13,7 +13,7 @@
                             <div class="col-3">
                                 <div class="form-group">
                                     <label for="">Id</label>
-                                    <input formControlName="id" type="text" class="form-control">
+                                    <input formControlName="idUbigeo" type="text" class="form-control">
                                 </div>
                             </div>
                             <div class="col-3">
@@ -65,7 +65,7 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let ubigeo of ubigeos">
-                        <td> {{ubigeo.id}} </td>
+                        <td> {{ubigeo.idUbigeo}} </td>
                         <td> {{ubigeo.departamento}} </td>
                         <td> {{ubigeo.provincia}} </td>
                         <td> {{ubigeo.distrito}} </td>
@@ -73,7 +73,7 @@
                             <button (click)="editarubigeo(modalEdit,ubigeo)" class="btn btn-primary btn-sm">
                                 <i class="fas fa-edit"></i>
                             </button>
-                            <button (click)="eliminarRegistro(ubigeo.id)" class="btn btn-danger btn-sm">
+                            <button (click)="eliminarRegistro(ubigeo.idUbigeo)" class="btn btn-danger btn-sm">
                                 <i class="fas fa-trash"></i>
                             </button>
                         </td>

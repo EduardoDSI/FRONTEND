@@ -1,0 +1,131 @@
+<div class="modal-header">
+    <h4 class="modal-title pull-left">{{title}}</h4>
+    <!-- (click)="modalRef?.hide()" -->
+    <button type="button" (click)="cancelarAccion()" class="btn-close close pull-right" aria-label="Close">
+        <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+
+    <form [formGroup]="myForm">
+        <div class="row">
+            <div class="col-12 mt-3">
+                <div class="form-group">
+                    <label for="">ID</label>
+                    <input formControlName="idContrato" type="text" class="form-control" placeholder="Ingrese el Identificador">
+                </div>
+            </div>
+            <div class="col-12 mt-3">
+                <div class="form-group">
+                    <label for="">DuracionContratoMes</label>
+                    <input formControlName="duracionContratoMes" type="number" class="form-control"
+                        placeholder="Ingresedel Contrato por Mes">
+                </div>
+                <div *ngIf="myForm.get('duracionContratoMes')?.errors &&  myForm.touched ">
+                    <small class="text-danger" *ngIf="myForm.get('duracionContratoMes')?.hasError('required')"> Campo requerido
+                    </small>
+                </div>
+            </div>
+            <div class="col-12 mt-3">
+                <div class="form-group">
+                    <label for="">FechaContrato</label>
+                    <input formControlName="fechaContrato" type="date" class="form-control"
+                        placeholder="Ingrese el Fecha del contrato">
+                </div>
+                <div *ngIf="myForm.get('fechaContrato')?.errors &&  myForm.touched ">
+                    <small class="text-danger" *ngIf="myForm.get('fechaContrato')?.hasError('required')"> Campo requerido
+                    </small>
+                </div>
+            </div>
+            <div class="col-12 mt-3">
+                <div class="form-group">
+                    <label for="">FechaVenContrato</label>
+                    <input formControlName="fechaVenContrato" type="date" class="form-control"
+                        placeholder="Ingrese el Fecha Vennta del contrato">
+                </div>
+                <div *ngIf="myForm.get('fechaVenContrato')?.errors &&  myForm.touched ">
+                    <small class="text-danger" *ngIf="myForm.get('fechaVenContrato')?.hasError('required')"> Campo requerido
+                    </small>
+                </div>
+            </div>
+            <div class="col-12 mt-3">
+                <div class="form-group">
+                    <label for="tipoComprobante">Tipo de Comprobante</label>
+                    <select formControlName="tipoComprobante" class="form-control" id="tipoComprobante">
+                        <option value="Factura">Factura</option>
+                        <option value="Boleta">Boleta</option>
+                    </select>
+                    
+                    <!-- Validación -->
+                    <div *ngIf="myForm.get('tipoComprobante')?.errors && myForm.touched">
+                        <small class="text-danger" *ngIf="myForm.get('tipoComprobante')?.hasError('required')">Campo requerido</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 mt-3">
+                <div class="form-group">
+                    <label for="modoPago">Modo de Pago</label>
+                    <select formControlName="modoPago" class="form-control" id="modoPago">
+                        <option value="Tarjeta de Crédito">Tarjeta de Crédito</option>
+                        <option value="Transferencia Bancaria">Transferencia Bancaria</option>
+                        <option value="Efectivo">Efectivo</option>
+                    </select>
+                    
+                    <!-- Validación -->
+                    <div *ngIf="myForm.get('modoPago')?.errors && myForm.touched">
+                        <small class="text-danger" *ngIf="myForm.get('modoPago')?.hasError('required')">Campo requerido</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 mt-3">
+                <div class="form-group">
+                    <label for="">MontoTarifaPlana</label>
+                    <input formControlName="montoTarifaPlana" type="number" class="form-control"
+                        placeholder="Ingrese el montoTarifaPlana del contrato">
+                </div>
+                <div *ngIf="myForm.get('montoTarifaPlana')?.errors &&  myForm.touched ">
+                    <small class="text-danger" *ngIf="myForm.get('montoTarifaPlana')?.hasError('required')"> Campo requerido
+                    </small>
+                </div>
+            </div>
+            <div class="col-12 mt-3">
+                <div class="form-group">
+                    <label for="">MontoPagado</label>
+                    <input formControlName="montoPagado" type="number" class="form-control"
+                        placeholder="Ingrese el Monto Pagado del contrato">
+                </div>
+                <div *ngIf="myForm.get('montoPagado')?.errors &&  myForm.touched ">
+                    <small class="text-danger" *ngIf="myForm.get('montoPagado')?.hasError('required')"> Campo requerido
+                    </small>
+                </div>
+            </div>
+            <div class="col-12 mt-3">
+                <div class="form-group">
+                    <label for="estado">Estado</label>
+                    <select formControlName="estado" class="form-control" id="estado">
+                        <option value="Activo">Activo</option>
+                        <option value="No Activo">No Activo</option>
+                    </select>
+                    
+                    <!-- Validación -->
+                    <div *ngIf="myForm.get('estado')?.errors && myForm.touched">
+                        <small class="text-danger" *ngIf="myForm.get('estado')?.hasError('required')">Campo requerido</small>
+                    </div>
+                </div>
+            </div>                     
+            <div class="col-6 mt-3">
+                <div class="d-grid gap-2">
+                    <button [disabled]="myForm.invalid" (click)="guardar()"
+                        class="btn-block btn btn-primary btn-sm">GUARDAR</button>
+                </div>
+            </div>
+            <div class="col-6 mt-3">
+                <div class="d-grid gap-2">
+                    <button (click)="cancelarAccion()" class="btn-block btn btn-danger btn-sm">CANCELAR</button>
+                </div>
+            </div>
+
+        </div>
+    </form>
+
+</div>

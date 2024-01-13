@@ -24,7 +24,8 @@ export class MantubigeoListComponent implements OnInit {
   accionModal: number = 0;
   myFormFilter: FormGroup ;
   totalItems: number = 0;
-  itemsPerPage: number = 3;
+  itemsPerPage: number = 0;
+  currentPage: number = 1;
   request: GenericFilterRequest = new GenericFilterRequest();
 
 
@@ -37,7 +38,7 @@ export class MantubigeoListComponent implements OnInit {
   ) {
     //nuestro formulario ubigeo request
     this.myFormFilter = this.fb.group({
-      id: ["", []],
+      idUbigeo: ["", []],
       departamento: ["", []],
       provincia: ["", []],
       distrito: ["", []],
@@ -101,8 +102,9 @@ export class MantubigeoListComponent implements OnInit {
     this.modalRef?.hide();
     if (res) {
       this.listarubigeos();
+      this.request.numeroPagina = this.currentPage; // Establece el número de página al valor almacenado.
+      this.filtrar();
     }
-
   }
   
 
@@ -126,7 +128,7 @@ export class MantubigeoListComponent implements OnInit {
   filtrar() {
     this.request.filtros = [];
     let valueForm = this.myFormFilter.getRawValue();
-    this.request.filtros.push({ name: "id", value: valueForm.id });
+    this.request.filtros.push({ name: "idUbigeo", value: valueForm.idUbigeo });
     this.request.filtros.push({ name: "departamento", value: valueForm.departamento });
     this.request.filtros.push({ name: "provincia", value: valueForm.provincia });
     this.request.filtros.push({ name: "distrito", value: valueForm.distrito });
@@ -146,6 +148,7 @@ export class MantubigeoListComponent implements OnInit {
   }
 
   changePage(event: PageChangedEvent) {
+    this.currentPage = event.page; // Almacena la página actual.
     this.request.numeroPagina = event.page;
     this.filtrar();
   }
@@ -156,5 +159,3 @@ export class MantubigeoListComponent implements OnInit {
     this.filtrar();
   }
 }
-
-

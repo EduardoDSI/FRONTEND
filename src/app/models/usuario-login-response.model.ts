@@ -4,5 +4,4 @@ export class UsuarioLoginResponse {
     contrasenia: string = "";
     idPersona: number = 0;
     idRol: number = 0;
-
 }

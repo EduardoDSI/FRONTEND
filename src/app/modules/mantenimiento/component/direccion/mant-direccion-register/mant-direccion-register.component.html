@@ -1,7 +1,7 @@
 <div class="modal-header">
     <h4 class="modal-title pull-left">{{title}}</h4>
     <!-- (click)="modalRef?.hide()" -->
-    <button type="button" class="btn-close close pull-right" aria-label="Close">
+    <button (click)="cancelarAccion()" type="button" class="btn-close close pull-right" aria-label="Close">
         <span aria-hidden="true" class="visually-hidden">&times;</span>
     </button>
 </div>
@@ -12,7 +12,7 @@
             <div class="col-12 mt-3">
                 <div class="form-group">
                     <label for="">ID</label>
-                    <input formControlName="id" type="text" class="form-control" placeholder="Ingrese el Identificador">
+                    <input formControlName="idDireccion" type="text" class="form-control" placeholder="Ingrese el Identificador">
                 </div>
             </div>
             <div class="col-12 mt-3">
@@ -40,7 +40,7 @@
             <div class="col-12 mt-3">
                 <div class="form-group">
                     <label for="">IdPersona</label>
-                    <input formControlName="idPersona" type="text" class="form-control"
+                    <input formControlName="idPersona" type="number" class="form-control"
                         placeholder="Ingrese el idPersona del ubigeo">
                 </div>
                 <div *ngIf="myForm.get('idPersona')?.errors &&  myForm.touched ">
@@ -58,7 +58,7 @@
             </div>
             <div class="col-6 mt-3">
                 <div class="d-grid gap-2">
-                    <button class="btn-block btn btn-danger btn-sm">CANCELAR</button>
+                    <button (click)="cancelarAccion()" class="btn-block btn btn-danger btn-sm">CANCELAR</button>
                 </div>
 
             </div>
